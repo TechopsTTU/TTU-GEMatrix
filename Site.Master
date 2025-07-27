@@ -1,0 +1,70 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="GE.Site" %>
+
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">  
+ 
+<script runat="server">
+          
+    Sub NavigationMenu_MenuItemClick(ByVal sender As Object, ByVal e As MenuEventArgs)
+        Response.Redirect(e.Item.Value)
+        ' System.Threading.Thread.Sleep(5000)
+      
+        ' ScriptManager.RegisterStartupScript(Me, Page.GetType, "Script", "ShowLoading();", True)
+    End Sub
+        </script> 
+<head runat="server">
+    <title>GE MATRIX DB</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+     <style type="text/css">
+        body {padding:5px; margin:0px}
+        .centered {text-align: center;}
+        .spinner {position: fixed;top: 50%;left: 50%;
+            width: 1px;
+        }
+        </style>
+         <script type = "text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> 
+         <script type = "text/javascript" src="http://REPORTSRVR/reports/Tracksicsql/Scripts/spin.min.js"></script>
+</head>
+<body>
+    <form runat="server">
+     <div id='spinner' class='spinner'></div>
+     <br />  
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    GE MATRIX DATABASE
+                </h1>
+            </div>       
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/JobEntry.aspx" Text="Home"/>
+                        <asp:MenuItem Text="Menu Items" Value="Menu Items" Selectable="False">
+                            <asp:MenuItem NavigateUrl="~/Codes.aspx" Text="Add New Code" 
+                                Value="Add New Code"></asp:MenuItem>
+                            <asp:MenuItem Text="Inspection Data" Value="Inspection Data" 
+                                NavigateUrl="~/InspData.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Search.aspx" Text="Quick Search" 
+                            Value="Quick Search"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <br />
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

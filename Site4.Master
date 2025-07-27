@@ -1,0 +1,61 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site4.Master.vb" Inherits="GE.Site3" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">  
+
+<head runat="server">
+    <title>GE MATRIX DB</title>
+    <link href="Styles/Site.css" rel="stylesheet" type="text/css" />
+
+    <link href="Styles/jQueryUI/redmond/jquery-ui-1.8.2.custom.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+    <script src="Scripts/jqueryProgressDialog.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+    <title></title>
+<body>
+ 
+<div id="progressDialog" title="Creating Report" style="display: none;">
+    <img src="Images/AjaxProgress.gif" alt="Processing"/>
+    <p>
+        Please wait while your request is processed.
+    </p>
+</div>
+    <form runat="server">
+     <br />  
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    GE MATRIX DATABASE
+                </h1>
+            </div>
+          
+           <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/JobEntry.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/prntInspData.aspx" Text="Print Inspection Data" 
+                            Value="Print Serials #"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <br />
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>
